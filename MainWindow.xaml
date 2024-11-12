@@ -1,0 +1,47 @@
+﻿<Window x:Class="PgpHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pgp Encryption/Decryption Helper" Height="300" Width="500">
+    <Grid>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Tab 1: File Selection -->
+            <TabItem Header="File Selection">
+                <Grid>
+                    <!-- File Selection -->
+                    <Button Content="Select File" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,60,0,0" Width="100" Click="SelectFile_Click"/>
+                    <TextBox Name="FilePathTextBox" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,60,0,0" Width="300"/>
+
+                    <!-- Action Selection (Encrypt/Decrypt) -->
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" Orientation="Horizontal">
+                        <RadioButton Name="EncryptRadioButton" Content="Encrypt" GroupName="ActionGroup" IsEnabled="False"/>
+                        <RadioButton Name="DecryptRadioButton" Content="Decrypt" GroupName="ActionGroup" Margin="20,0,0,0" IsEnabled="False"/>
+                    </StackPanel>
+
+                    <!-- Submit Button -->
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,110,0,0" Orientation="Horizontal">
+                        <Button Content="Submit" Width="100" Click="Submit_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 2: Key Management -->
+            <TabItem Header="Key Management">
+                <Grid>
+                    <!-- Public Key Input -->
+                    <TextBlock Text="Public Key:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                    <TextBox Name="PublicKeyTextBox" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,30,0,0" Width="450" Height="60" TextChanged="PublicKeyTextBox_TextChanged"/>
+
+                    <!-- Private Key Input -->
+                    <TextBlock Text="Private Key:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,0,0"/>
+                    <TextBox Name="PrivateKeyTextBox" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0" Width="450" Height="60" TextChanged="PrivateKeyTextBox_TextChanged"/>
+
+                    <!-- Passphrase Input -->
+                    <TextBlock Text="Passphrase:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,190,0,0"/>
+                    <TextBox Name="PassphraseTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,210,0,0" Width="450" Height="25" TextChanged="PassphraseTextBox_TextChanged"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
